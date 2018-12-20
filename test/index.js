@@ -39,10 +39,10 @@ Promise.all([
   const jsonFixturesStreams = fixtures[1];
   const csvFixtures = fixtures[2];
 
-  CLI(testRunner, jsonFixtures, csvFixtures);
+  //CLI(testRunner, jsonFixtures, csvFixtures);
   JSON2CSVParser(testRunner, jsonFixtures, csvFixtures);
-  JSON2CSVTransform(testRunner, jsonFixturesStreams, csvFixtures, jsonFixtures);
-  parseNdjson(testRunner, jsonFixtures);
+  //JSON2CSVTransform(testRunner, jsonFixturesStreams, csvFixtures, jsonFixtures);
+  //parseNdjson(testRunner, jsonFixtures);
 
   testRunner.run();
 });

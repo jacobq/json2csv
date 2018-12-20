@@ -4,6 +4,7 @@ const json2csv = require('../lib/json2csv');
 const Json2csvParser = json2csv.Parser;
 
 module.exports = (testRunner, jsonFixtures, csvFixtures) => {
+/*
   testRunner.add('should not modify the opts passed using parse method', (t) => {
     const opts = {};
     const csv = json2csv.parse(jsonFixtures.default);
@@ -750,6 +751,28 @@ module.exports = (testRunner, jsonFixtures, csvFixtures) => {
     t.equal(csv[0], '\ufeff');
     t.equal(csv.length, csvFixtures.default.length + 1);
     t.equal(csv.length, csvFixtures.withBOM.length);
+    t.end();
+  });
+*/
+  // Array expansion
+
+  testRunner.add('should expand array fields', (t) => {
+    const opts = {
+      fields: ['carModel', {
+        value: 'availableColors',
+        label: 'color',
+        expand: {
+          size: 5,
+          label: (label, i) => `${label}:${i}`
+        },
+      }]
+    };
+
+    const parser = new Json2csvParser(opts);
+    const csv = parser.parse(jsonFixtures.array);
+
+    console.log('DEBUG: got CSV data -->\r\n', csv, '\r\n\r\n');
+    //t.ok(true);
     t.end();
   });
 };

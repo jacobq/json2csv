@@ -1,0 +1,6 @@
+[
+  { "carModel": "Audi",      "availableColors": ["awesome avacado", "black", "blue"] },
+  { "carModel": "T",         "availableColors": ["black"] },
+  { "carModel": "Pretend",   "availableColors": [] },
+  { "carModel": "Undefined" }
+]
